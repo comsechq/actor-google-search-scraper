@@ -6,7 +6,7 @@ const {
 const extractorsDesktop = require('./extractors/desktop');
 const extractorsMobile = require('./extractors/mobile');
 const {
-    getInitialRequests, executeCustomDataFunction, getInfoStringFromResults, createSerpRequest,
+    getInitialRequests, executeCustomDataFunction, createSerpRequest,
     logAsciiArt, createDebugInfo, ensureAccessToSerpProxy,
 } = require('./tools');
 
@@ -28,6 +28,7 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const dataset = await Apify.openDataset();
     const extractors = mobileResults ? extractorsMobile : extractorsDesktop;
+    var hasNextPage = false;
 
     // Create crawler.
     const crawler = new Apify.CheerioCrawler({
@@ -62,7 +63,7 @@ Apify.main(async () => {
             // Enqueue new page.
             const nextPageUrl = $('#pnnext').attr('href');
             if (nextPageUrl) {
-                data.hasNextPage = true;
+                hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
                     await requestQueue.addRequest(createSerpRequest(`http://${parsedUrl.host}${nextPageUrl}`, request.userData.page + 1));
                 } else {
@@ -75,7 +76,7 @@ Apify.main(async () => {
             await dataset.pushData(data);
 
             // Log some nice info for user.
-            log.info(`Finished query "${parsedUrl.query.q}" page ${nonzeroPage} (${getInfoStringFromResults(data)})`);
+            log.info(`Finished query "${parsedUrl.query.q}" page ${nonzeroPage}`);
         },
         handleFailedRequestFunction: async ({ request }) => {
             await Apify.pushData({

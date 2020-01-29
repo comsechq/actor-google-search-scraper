@@ -67,18 +67,18 @@ exports.executeCustomDataFunction = async (funcString, params) => {
     return func(params);
 };
 
-exports.getInfoStringFromResults = (results) => {
-    return _
-        .chain({
-            organicResults: results.organicResults.length,
-            paidResults: results.paidResults.length,
-            paidProducts: results.paidProducts.length,
-        })
-        .mapObject((val, key) => `${key}: ${val}`)
-        .toArray()
-        .join(', ')
-        .value();
-};
+// exports.getInfoStringFromResults = (results) => {
+//     return _
+//         .chain({
+//             organicResults: results.organicResults.length,
+//             paidResults: results.paidResults.length,
+//             paidProducts: results.paidProducts.length,
+//         })
+//         .mapObject((val, key) => `${key}: ${val}`)
+//         .toArray()
+//         .join(', ')
+//         .value();
+// };
 
 exports.logAsciiArt = () => {
     console.log(`
