@@ -11,18 +11,24 @@ exports.extractOrganicResults = ($) => {
         const siteLinks = [];
         $(el).find('ul li').each((i, siteLinkEl) => {
             siteLinks.push({
-                title: $(siteLinkEl).find('h3').text(),
-                url: $(siteLinkEl).find('h3 a').attr('href'),
-                description: $(siteLinkEl).find('div').text(),
+                status: 200,
+                result: {
+                    title: $(siteLinkEl).find('h3').text(),
+                    url: $(siteLinkEl).find('h3 a').attr('href'),
+                    description: $(siteLinkEl).find('div').text()
+                }
             });
         });
 
         searchResults.push({
-            title: $(el).find('h3').text(),
-            url: $(el).find('.r a').attr('href'),
-            displayedUrl: $(el).find('cite').text(),
-            description: $(el).find('.s .st').text(),
-            siteLinks,
+            status: 200,
+            result: {
+                title: $(el).find('h3').text(),
+                url: $(el).find('.r a').attr('href'),
+                displayedUrl: $(el).find('cite').text(),
+                description: $(el).find('.s .st').text(),
+                siteLinks
+            }
         });
     });
 

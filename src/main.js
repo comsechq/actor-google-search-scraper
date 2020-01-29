@@ -55,31 +55,7 @@ Apify.main(async () => {
             const domain = matches[3].toLowerCase();
 
             // Compose the dataset item.
-            const data = {
-                '#debug': createDebugInfo(request, response),
-                '#error': false,
-                searchQuery: {
-                    term: parsedUrl.query.q,
-                    device: mobileResults ? 'MOBILE' : 'DESKTOP',
-                    page: nonzeroPage,
-                    type: 'SEARCH',
-                    domain,
-                    countryCode: GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE[domain] || DEFAULT_GOOGLE_SEARCH_DOMAIN_COUNTRY_CODE,
-                    languageCode: parsedUrl.query.hl || null,
-                    locationUule: parsedUrl.query.uule || null,
-                    resultsPerPage: parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE,
-                },
-                url: request.url,
-                hasNextPage: false,
-                resultsTotal: extractors.extractTotalResults($),
-                relatedQueries: extractors.extractRelatedQueries($, parsedUrl.host),
-                paidResults: extractors.extractPaidResults($),
-                paidProducts: extractors.extractPaidProducts($),
-                organicResults: extractors.extractOrganicResults($),
-                customData: customDataFunction
-                    ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body })
-                    : null,
-            };
+            const data = extractors.extractOrganicResults($);
 
             if (saveHtml) data.html = body;
 
