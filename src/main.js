@@ -111,7 +111,7 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
         'data': input.webhook.finishWebhookData
     };
 
-    log.info(datasetData);
+    log.info(JSON.stringify(datasetData));
 
     const maxRetries = 3;
 
@@ -125,7 +125,7 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
                         headers: input.webhook.headers
                     });
 
-                    log.info(out);
+                    log.info(JSON.stringify(out));
                     break;
                 } catch (e) {
                     log.info(e);
