@@ -9,7 +9,7 @@ const {
     getInitialRequests, executeCustomDataFunction, createSerpRequest,
     logAsciiArt, createDebugInfo, ensureAccessToSerpProxy,
 } = require('./tools');
-const rp = require('request-promise');
+const rp = require('./rp-wrapper.js');
 
 const { log } = Apify.utils;
 
@@ -116,20 +116,24 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
 
     log.info(JSON.stringify(input));
 
-    var options = {
-        url: input.webhook.url,
-        method: input.webhook.method,
-        json: datasetData,
-        headers: input.webhook.headers
-    };
+    const maxRetries = 3;
 
-    rp(options)
-    .then(function(success){
-        log.info('success - ' + success);
-    })
-    .catch(function(err){
-        log.info(err);
-    });
+    for (let retry = 0; retry < maxRetries; retry++) {
+        try {
+
+            const out = await rp.rp({
+                url: input.webhook.url,
+                method: input.webhook.method,
+                json: datasetData,
+                headers: input.webhook.headers
+            });
+
+            console.log(out);
+            break;
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
 });
  
