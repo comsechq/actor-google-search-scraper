@@ -9,6 +9,7 @@ const {
     getInitialRequests, executeCustomDataFunction, createSerpRequest,
     logAsciiArt, createDebugInfo, ensureAccessToSerpProxy,
 } = require('./tools');
+const https = require('https');
 
 const { log } = Apify.utils;
 
@@ -101,4 +102,20 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
     } else {
         log.info('Scraping is finished, see you next time.');
     }
+
+    // Push the result to API Gateway which will call the Lambda and put the results in S3.
+    log.info('Pushing results to the webhook.');
+
+    request.post(
+        input.webhook.url,
+        { json: dataset },
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+            }
+            if(error){
+                console.log(error);
+            }
+        }
+    );
 });
