@@ -9,7 +9,7 @@ const {
     getInitialRequests, executeCustomDataFunction, createSerpRequest,
     logAsciiArt, createDebugInfo, ensureAccessToSerpProxy,
 } = require('./tools');
-const https = require('https');
+const requestLib = require('request');
 
 const { log } = Apify.utils;
 
@@ -106,7 +106,7 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
     // Push the result to API Gateway which will call the Lambda and put the results in S3.
     log.info('Pushing results to the webhook.');
 
-    request.post(
+    requestLib.post(
         input.webhook.url,
         { json: dataset },
         function (error, response, body) {
