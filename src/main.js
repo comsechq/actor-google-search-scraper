@@ -111,26 +111,25 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
         'data': input.webhook.finishWebhookData
     };
 
+    // TODO: Delete these logs when i'm finished debugging.
     log.info(JSON.stringify(datasetData));
 
     log.info(JSON.stringify(input));
 
-    const maxRetries = 3;
+    var options = {
+        url: input.webhook.url,
+        method: input.webhook.method,
+        json: datasetData,
+        headers: input.webhook.headers
+    };
 
-            for (let retry = 0; retry < maxRetries; retry++) {
-                try {
+    rp(options)
+    .then(function(success){
+        log.info('success - ' + success);
+    })
+    .catch(function(err){
+        log.info(err);
+    });
 
-                    const out = await rp({
-                        url: input.webhook.url,
-                        method: input.webhook.method,
-                        json: datasetData,
-                        headers: input.webhook.headers
-                    });
-
-                    log.info(JSON.stringify(out));
-                    break;
-                } catch (e) {
-                    log.info(e);
-                }
-            }
 });
+ 
