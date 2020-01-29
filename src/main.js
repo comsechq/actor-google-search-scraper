@@ -113,6 +113,8 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
 
     log.info(JSON.stringify(datasetData));
 
+    log.info(JSON.stringify(input));
+
     const maxRetries = 3;
 
             for (let retry = 0; retry < maxRetries; retry++) {
