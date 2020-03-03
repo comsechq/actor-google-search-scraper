@@ -16,7 +16,7 @@ const { log } = Apify.utils;
 Apify.main(async () => {
     const input = await Apify.getInput();
 
-    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml } = input;
+    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml, saveHtmlToKeyValueStore } = input;
 
     // Check that user have access to SERP proxy.
     await ensureAccessToSerpProxy();
@@ -28,6 +28,7 @@ Apify.main(async () => {
     const requestList = await Apify.openRequestList('initial-requests', initialRequests);
     const requestQueue = await Apify.openRequestQueue();
     const dataset = await Apify.openDataset();
+    const keyValueStore = await Apify.openKeyValueStore();
     const extractors = mobileResults ? extractorsMobile : extractorsDesktop;
     var hasNextPage = false;
 
@@ -55,18 +56,37 @@ Apify.main(async () => {
             // We know the URL matches (otherwise we have a bug here)
             const matches = GOOGLE_SEARCH_URL_REGEX.exec(request.url);
             const domain = matches[3].toLowerCase();
+            const resultsPerPage = parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE;
+            const { host } = parsedUrl;
 
             // Compose the dataset item.
             const data = extractors.extractOrganicResults($);
 
             if (saveHtml) data.html = body;
 
-            // Enqueue new page.
-            const nextPageUrl = $('#pnnext').attr('href');
+            if (saveHtmlToKeyValueStore) {
+                const key = `${request.id}.html`;
+                await keyValueStore.setValue(key, body, { contentType: 'text/html; charset=utf-8' });
+                data.htmlSnapshotUrl = keyValueStore.getPublicUrl(key);
+            }
+
+            const searchOffset = nonzeroPage * resultsPerPage;
+
+            // Enqueue new page. Universal "next page" selector
+            const nextPageUrl = $(`a[href*="start=${searchOffset}"]`).attr('href');
+
             if (nextPageUrl) {
-                hasNextPage = true;
+                data.hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
-                    await requestQueue.addRequest(createSerpRequest(`http://${parsedUrl.host}${nextPageUrl}`, request.userData.page + 1));
+                    const nextPageHref = url.format({
+                        ...parsedUrl,
+                        search: undefined,
+                        query: {
+                            ...parsedUrl.query,
+                            start: `${searchOffset}`,
+                        },
+                    });
+                    await requestQueue.addRequest(createSerpRequest(nextPageHref, request.userData.page + 1));
                 } else {
                     log.info(`Not enqueueing next page for query "${parsedUrl.query.q}" because the "maxPagesPerQuery" limit has been reached.`);
                 }
@@ -80,7 +100,7 @@ Apify.main(async () => {
             log.info(`Finished query "${parsedUrl.query.q}" page ${nonzeroPage}`);
         },
         handleFailedRequestFunction: async ({ request }) => {
-            await Apify.pushData({
+            await dataset.pushData({
                 '#debug': createDebugInfo(request),
                 '#error': true,
             });
@@ -103,37 +123,35 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
         log.info('Scraping is finished, see you next time.');
     }
 
-    // Push the result to API Gateway which will call the Lambda and put the results in S3.
-    log.info('Pushing results to the webhook.');
+    if(input.webhook) {
+        
+        // Push the result to API Gateway which will call the Lambda and put the results in S3.
+        log.info('Pushing results to the webhook.');
 
-    const datasetData = {
-        'datasetId': datasetId,
-        'data': input.webhook.finishWebhookData
-    };
+        const datasetData = {
+            'datasetId': datasetId,
+            'data': input.webhook.finishWebhookData
+        };
 
-    // TODO: Delete these logs when i'm finished debugging.
-    log.info(JSON.stringify(datasetData));
+        const maxRetries = 3;
 
-    log.info(JSON.stringify(input));
+        for (let retry = 0; retry < maxRetries; retry++) {
+            try {
 
-    const maxRetries = 3;
+                const out = await rp.rp({
+                    url: input.webhook.url,
+                    method: input.webhook.method,
+                    json: datasetData,
+                    headers: input.webhook.headers
+                });
 
-    for (let retry = 0; retry < maxRetries; retry++) {
-        try {
-
-            const out = await rp.rp({
-                url: input.webhook.url,
-                method: input.webhook.method,
-                json: datasetData,
-                headers: input.webhook.headers
-            });
-
-            console.log(out);
-            break;
-        } catch (e) {
-            console.log(e);
-        }
-    };
+                console.log(out);
+                break;
+            } catch (e) {
+                console.log(e);
+            }
+        };
+    }
 
 });
  
