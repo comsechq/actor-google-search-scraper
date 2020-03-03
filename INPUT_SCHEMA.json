@@ -1,6 +1,6 @@
 {
     "title": "Google Search Scraper input",
-    "description": "Specify Google Search queries or full URLs. Note that the additional settings such as Country, Language, or UULE location code only apply to the search queries, but not the URLs.",
+    "description": "Specify Google Search queries or full URLs. Beware that the additional settings such as Country, Language, or UULE location code only apply to the search queries, but not the URLs.",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -685,7 +685,7 @@
         "locationUule": {
             "title": "UULE location code",
             "type": "string",
-            "description": "The code for geolocation of search results. It's passed to Google Search as the <code>uule</code> URL query parameter. You can use the <a href='https://padavvan.github.io/' target='_blank'>UULE code generator</a> or <a href='https://moz.com/ugc/geolocation-the-ultimate-tip-to-emulate-local-search' target='_blank'>read more</a>.<br><br>This setting only applies to <strong>Search queries</strong>, but not to <strong>URLs</strong>.",
+            "description": "The code for geolocation of search results. It's passed to Google Search as the <code>uule</code> URL query parameter. You can use the <a href='https://padavvan.github.io/' target='_blank'>UULE code generator</a>. Learn more about <a href='https://moz.com/ugc/geolocation-the-ultimate-tip-to-emulate-local-search' target='_blank'>emulating local search</a>. <br><br>This setting only applies to <strong>Search queries</strong>, but not to <strong>URLs</strong>.",
             "editor": "textfield"
         },
         "resultsPerPage": {
@@ -718,12 +718,17 @@
             "minimum": 1
         },
         "saveHtml": {
-            "title": "Save HTML",
+            "title": "Save HTML to dataset",
             "type": "boolean",
-            "description": "If checked, the results will contain the raw HTML of Google Search results pages.",
+            "description": "If checked, the HTML of Google Search results pages will be stored to the default dataset, under the <code>html</code> property. This is useful if you need to process the HTML, but it makes the dataset large and reduces performance.",
             "default": false,
-            "groupCaption": "Options",
-            "groupDescription": "Various options for this actor"
+            "groupCaption": "Options"
+        },
+        "saveHtmlToKeyValueStore": {
+            "title": "Save HTML to key-value store",
+            "type": "boolean",
+            "description": "If checked, the HTML of the Google Search results pages will be stored to the default key-value store and links to the files stored to the dataset under the <code>htmlSnapshotUrl</code> property. This is useful for debugging, since you can easily view the the pages in browser, but use of this feature has some performance penalty.",
+            "default": false
         },
         "mobileResults": {
             "title": "Mobile results",
