@@ -19,7 +19,6 @@ Apify.main(async () => {
     const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml, saveHtmlToKeyValueStore } = input;
 
     // Check that user have access to SERP proxy.
-    await ensureAccessToSerpProxy();
     logAsciiArt();
 
     // Create initial request list and queue.
