@@ -24,7 +24,7 @@ describe('mobile extractors', () => {
 
             test('extractOrganicResults', async () => {
                 const { $, json } = await loadPair(type);
-                const results = mobile.extractOrganicResults($, 'google.com');
+                const results = mobile.extractOrganicResults($, 'www.google.com');
 
                 snapshot.set(type, 'organicResults', results);
 
@@ -33,7 +33,7 @@ describe('mobile extractors', () => {
 
             test('extractPaidProducts', async () => {
                 const { $, json } = await loadPair(type);
-                const results = mobile.extractPaidProducts($, 'google.com');
+                const results = mobile.extractPaidProducts($, 'www.google.com');
 
                 snapshot.set(type, 'paidProducts', results);
 
@@ -42,7 +42,7 @@ describe('mobile extractors', () => {
 
             test('extractPaidResults', async () => {
                 const { $, json } = await loadPair(type);
-                const results = mobile.extractPaidResults($, 'google.com');
+                const results = mobile.extractPaidResults($, 'www.google.com');
 
                 snapshot.set(type, 'paidResults', results);
 
@@ -51,7 +51,7 @@ describe('mobile extractors', () => {
 
             test('extractRelatedQueries', async () => {
                 const { $, json } = await loadPair(type);
-                const results = mobile.extractRelatedQueries($, 'google.com');
+                const results = mobile.extractRelatedQueries($, 'www.google.com');
 
                 snapshot.set(type, 'relatedQueries', results);
 

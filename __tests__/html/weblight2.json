@@ -111,35 +111,35 @@
     "relatedQueries": [
         {
             "title": "hotels.com suomi",
-            "url": "https://google.com/search?q=hotels.com+suomi&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAE"
+            "url": "https://www.google.com/search?q=hotels.com+suomi&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAE"
         },
         {
             "title": "sokos hotel",
-            "url": "https://google.com/search?q=sokos+hotel&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAI"
+            "url": "https://www.google.com/search?q=sokos+hotel&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAI"
         },
         {
             "title": "hotelli helsinki",
-            "url": "https://google.com/search?q=hotelli+helsinki&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAM"
+            "url": "https://www.google.com/search?q=hotelli+helsinki&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAM"
         },
         {
             "title": "hotels.com huijaus",
-            "url": "https://google.com/search?q=hotels.com+huijaus&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAQ"
+            "url": "https://www.google.com/search?q=hotels.com+huijaus&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAQ"
         },
         {
             "title": "hotels.com asiakaspalvelu",
-            "url": "https://google.com/search?q=hotels.com+asiakaspalvelu&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAU"
+            "url": "https://www.google.com/search?q=hotels.com+asiakaspalvelu&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAU"
         },
         {
             "title": "lapland hotels",
-            "url": "https://google.com/search?q=lapland+hotels&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAY"
+            "url": "https://www.google.com/search?q=lapland+hotels&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAY"
         },
         {
             "title": "www trivago com hotel manager",
-            "url": "https://google.com/search?q=www+trivago+com+hotel+manager&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAc"
+            "url": "https://www.google.com/search?q=www+trivago+com+hotel+manager&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAc"
         },
         {
             "title": "hotellit tampere",
-            "url": "https://google.com/search?q=hotellit+tampere&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAg"
+            "url": "https://www.google.com/search?q=hotellit+tampere&sa=X&ved=2ahUKEwjmwaTQ5brnAhXReZoKHZn5CAQQ1QJ6BAgAEAg"
         }
     ]
 }

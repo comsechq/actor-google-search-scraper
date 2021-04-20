@@ -1,137 +1,244 @@
 {
-    "organicResults": [
+    "url": "http://www.google.com/search?q=buy%20ray%20ban&xmobile=1&xprovider=X",
+    "hasNextPage": true,
+    "resultsTotal": "N/A",
+    "relatedQueries": [
         {
-            "title": "TopHotels.: Рейтинг отелей и гостиниц мира",
-            "url": "https://tophotels.ru/",
-            "displayedUrl": "https://tophotels.ru",
-            "description": "TopHotels - информационный рейтинг отелей, основанный на мнениях специалистов туристического бизнеса и ...\nНапомнить пароль · Отели · Греция · Кипр\n\nФото от туристов: 4 856 424\nОтзывов туристов: 1 579 905\nОписаний: 144 099\nФотографий: 2 089 078",
+            "title": "ray bans",
+            "url": "https://www.google.com/search?q=ray+bans&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAE"
+        },
+        {
+            "title": "ray-ban sunglasses",
+            "url": "https://www.google.com/search?q=ray-ban+sunglasses&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAI"
+        },
+        {
+            "title": "ray-ban outlet",
+            "url": "https://www.google.com/search?q=ray-ban+outlet&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAM"
+        },
+        {
+            "title": "ray-ban sale",
+            "url": "https://www.google.com/search?q=ray-ban+sale&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAQ"
+        },
+        {
+            "title": "ray-ban promo code",
+            "url": "https://www.google.com/search?q=ray-ban+promo+code&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAU"
+        },
+        {
+            "title": "ray-ban wayfarer",
+            "url": "https://www.google.com/search?q=ray-ban+wayfarer&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAY"
+        },
+        {
+            "title": "ray-ban aviators",
+            "url": "https://www.google.com/search?q=ray-ban+aviators&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAc"
+        },
+        {
+            "title": "ray-ban sunglasses outlet",
+            "url": "https://www.google.com/search?q=ray-ban+sunglasses+outlet&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAg"
+        }
+    ],
+    "paidResults": [
+        {
+            "title": "Ray-Ban® Up to 50% Off - Free Shipping & Returns",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABABGgJxbg&sig=AOD64_2brE6c9-CtrTZobJFGasLeVaGJWw&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgVEAE&adurl=",
+            "displayedUrl": "www.ray-ban.com/",
+            "description": "Shop Now & Enjoy Up to 50% Off Selected Styles. Free Shipping on All Orders. Shop Your Favorite Sunglasess Today! Customize online.",
             "siteLinks": [
                 {
-                    "title": "Напомнить пароль",
-                    "url": "https://tophotels.ru/auth/login",
+                    "title": "Men's Sunglasses",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAHGgJxbg&sig=AOD64_2SxlXTkxVOrxa3-cSzzoEZCS-Vug&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAHoECBUQAw&adurl=",
                     "description": null
                 },
                 {
-                    "title": "Отели",
-                    "url": "https://tophotels.ru/catalog/hotel",
+                    "title": "Women's Sunglasses",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAKGgJxbg&sig=AOD64_3vJILqYfo7UwuxyixobIYjct0O4g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAXoECBUQBA&adurl=",
                     "description": null
                 },
                 {
-                    "title": "Греция",
-                    "url": "https://tophotels.ru/hotels/71",
-                    "description": null
-                },
-                {
-                    "title": "Кипр",
-                    "url": "https://tophotels.ru/hotels/76",
+                    "title": "Official Sales",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABALGgJxbg&sig=AOD64_039fmE_xqGc4loES42xUrjEIe5_g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAnoECBUQBQ&adurl=",
                     "description": null
                 }
             ]
         },
         {
-            "title": "Leading Hotels of the World: Luxury Hotels and Resorts",
-            "url": "https://www.lhw.com/",
-            "displayedUrl": "https://www.lhw.com",
-            "description": "Luxury Hotels at The Leading Hotels of the World. Your source for everything from luxury vacation packages, spa and ...",
+            "title": "Ray Ban Sunglasses - 50% Off Selected Style",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABACGgJxbg&sig=AOD64_0xdwnquTjqrwxRSVGPx605QTxYvQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgXEAE&adurl=",
+            "displayedUrl": "www.sunglasshut.com/",
+            "description": "Discover The Latest Designer Sunglasses At Sunglass Hut®. Shop Today. Enjoy Free Shipping...",
             "siteLinks": []
         },
         {
-            "title": "Best Hotels | U.S. News - US News Travel - US News & World Report",
-            "url": "https://travel.usnews.com/hotels/",
-            "displayedUrl": "https://travel.usnews.com › hotels",
-            "description": "U.S. News & World Report ranks the best luxury hotels in the U.S. and worldwide.",
+            "title": "Ray-Ban | Nordstrom Rack",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAAGgJxbg&sig=AOD64_0AUUgSDz5HRqTWq-8hwFLfB35d3g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgYEAE&adurl=",
+            "displayedUrl": "www.nordstromrack.com/",
+            "description": "Shop All Your Favorite Designers, All In One Place. Save Up To 55% Off.",
             "siteLinks": []
         },
         {
-            "title": "Small Luxury Hotels of the World: Boutique Hotels & Resorts",
-            "url": "https://www.slh.com/",
-            "displayedUrl": "https://www.slh.com",
-            "description": "Book Luxury Boutique Hotels at Small Luxury Hotels of the World. Over 500 Independently Minded Hotels in 80 ...",
+            "title": "Ray-Ban Sunglasses & Glasses | 50% Off Lens + Free Shipping",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABADGgJxbg&sig=AOD64_1aT9D04kTja8d6RZNXSczjRIkT8A&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgWEAE&adurl=",
+            "displayedUrl": "www.glassesusa.com/",
+            "description": "Buy Glasses Online At Up to 70% Off Retail Prices. Order Your Next Pair And Save. Ray-Ban Rx Glasses.",
             "siteLinks": []
         },
         {
-            "title": "Best 100 Hotels: World's Best Hotels 2019 | Travel + Leisure | Travel ...",
-            "url": "https://www.travelandleisure.com/worlds-best/hotels-top-100-overall",
-            "displayedUrl": "https://www.travelandleisure.com › hotels...",
-            "description": "10 de jul. de 2019 · This year's list of the top 100 hotels in the world reflects 33 countries and all continents except ...",
+            "title": "Ray-Ban Sunglasses Sale - Shop Glasses with Free Lenses",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAGGgJxbg&sig=AOD64_3BtZF5f1IwBQzfpBWK1Ru2CW35JQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgaEAE&adurl=",
+            "displayedUrl": "www.smartbuyglasses.com/",
+            "description": "Shop Now and Get Free High Quality Lenses with your purchase! Easy Returns & Fast Shipping. Sunglasses for less. Unbeatable selection of Glasses with Free Lenses & Fast Shipping. ",
             "siteLinks": []
         },
         {
-            "title": "The Grand Luxury Collection - Grand Luxury Hotels",
-            "url": "https://www.grandluxuryhotels.com/hotels/the-grand-collection",
-            "displayedUrl": "https://www.grandluxuryhotels.com › the...",
-            "description": "Hotel Schloss Fuschl, a Luxury Collection Resort & Spa. Hof bei Salzburg · Night from. US$332. book ...",
+            "title": "Ray-Bans Sunglasses For Less - Save Up To 70% Off On Poshmark",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAFGgJxbg&sig=AOD64_0nYPKBxfcFT3EzjRWvNla4SSaC9Q&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgZEAE&adurl=",
+            "displayedUrl": "www.poshmark.com/",
+            "description": "Shop Brand New Ray-Ban Sunglasses Up To 70% Off Retail. Authenticity Guaranteed! Posh Protect. Fashion at 70% off. 2-3 day priority shipping. Styles: Aviator, Wayfarer, Round, Clubmaster, Hexagonal, Round Double Bridge, Justin, Erika.",
             "siteLinks": []
         },
         {
-            "title": "The Best 5 Star Boutique & Luxury Hotels in the World | Mr & Mrs Smith",
-            "url": "https://www.mrandmrssmith.com/luxury-hotels",
-            "displayedUrl": "https://www.mrandmrssmith.com › luxur...",
-            "description": "Uncover the best luxury hotels in the world with the hotel specialists Mr & Mrs Smith. From 5 star city hotel stays to ...",
-            "siteLinks": []
-        },
-        {
-            "title": "The Best Hotels in the World: 2019 Readers' Choice Awards ...",
-            "url": "https://www.cntraveler.com/gallery/the-best-hotels-in-the-world",
-            "displayedUrl": "https://www.cntraveler.com › gallery › th...",
-            "description": "7 de out. de 2019 · These are the 50 best hotels in the world, as voted by you, our readers, in this year's Readers' Choice ...",
-            "siteLinks": []
-        },
-        {
-            "title": "Top 10 Most Luxurious Hotels in the World - Reader's Digest Canada",
-            "url": "https://www.readersdigest.ca/travel/world/top-10-most-luxurious-hotels-world/",
-            "displayedUrl": "https://www.readersdigest.ca › travel › to...",
-            "description": "When it comes to luxurious hotels, this one is at the top. Costing approximately $3 billion to build, Emirates Palace has ...",
-            "siteLinks": []
-        },
-        {
-            "title": "10 Best Hotels & Resorts Of The Year 2019 - Forbes",
-            "url": "https://www.forbes.com/sites/larryolmsted/2019/12/26/10-best-hotels--resorts-of-the-year-2019/",
-            "displayedUrl": "https://www.forbes.com › 2019/12/26",
-            "description": "26 de dez. de 2019 · Because the many top tier publications I write for skew towards luxury, the hotels I stay in reflect this, ...",
+            "title": "Ray-Ban Sunglasses - Jomashop",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAEGgJxbg&sig=AOD64_0qZvng8-R5-atsio5Oij6UrfxmgQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgbEAE&adurl=",
+            "displayedUrl": "www.jomashop.com/",
+            "description": "Shop Low Prices on a Huge Selection of Brands. Fast and Free Shipping. Save Up To 65% On Authentic Luxury! Watches, Sunglasses, Handbags, And More. Mobile-Optimized Site.",
             "siteLinks": []
         }
     ],
     "paidProducts": [],
-    "paidResults": [
+    "organicResults": [
         {
-            "title": "Hotel: Booking.com | Economize até 75%",
-            "description": "Reserve em 85.000 destinos no mundo todo. Site oficial da Booking.com",
-            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjxh6aIy73nAhWThpEKHfO0C-oYABAAGgJjZQ&sig=AOD64_0PjHa7EOYkfymcW2j-YhUbq55-Jw&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q0Qx6BAgMEAE&adurl="
+            "title": "Sunglasses - Free Shipping | Ray-Ban US",
+            "url": "https://www.ray-ban.com/usa/mobile/sunglasses/clp",
+            "displayedUrl": "https://www.ray-ban.com › sunglasses › clp",
+            "description": "Accepted Payment MethodsSales Tax and Proof of PurchaseFAQsSize guideFace shape guideSpecial Offers ...",
+            "siteLinks": [
+                {
+                    "title": "New Wayfarer Classic",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB2132%20UNISEX%20047-new%20wayfarer%20classic-gloss%20black/805289048527",
+                    "description": null
+                },
+                {
+                    "title": "Hexagonal",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3548N%20UNISEX%20007-hexagonal%20flat%20lenses-polished%20gold/8053672689679",
+                    "description": null
+                },
+                {
+                    "title": "Erika Classic",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB4171%20UNISEX%20012-erika%20classic-gloss%20tortoise/8053672475920",
+                    "description": null
+                },
+                {
+                    "title": "Round Double Bridge",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3647N%20UNISEX%20001-round%20double%20bridge-polished%20gold/8053672737622",
+                    "description": null
+                }
+            ]
+        },
+        {
+            "title": "Store Locator | Ray-Ban® USA",
+            "url": "https://www.ray-ban.com/usa/mobile/store-locator",
+            "displayedUrl": "https://www.ray-ban.com › usa › mobile",
+            "description": "If you buy two or more pairs, you'll receive a 20% discount on the least expensive​. Not bad, uh? If you are a California ...",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban® Official site USA",
+            "url": "https://www.ray-ban.com/usa/mobile",
+            "displayedUrl": "https://www.ray-ban.com › usa › mobile",
+            "description": "GET 40% OFF PRESCRIPTION LENSES WITH FRAME PURCHASE View allRay-Ban Sunglasses AVIATOR CLASSIC ...",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban - Amazon.com",
+            "url": "https://www.amazon.com/stores/Ray-Ban/Ray-Ban/page/0FFD63F6-6B0E-4DEE-99A2-CAE5788EF46B",
+            "displayedUrl": "https://www.amazon.com › stores › page",
+            "description": "Ray-Ban brand store on Amazon.",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses - Mens & Womens Ray-Bans - Macy's",
+            "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop?id=78258",
+            "displayedUrl": "https://www.macys.com › shop › ray-ban...",
+            "description": "Shop authentic Ray-Ban Sunglasses for men and women at macys.com! Discover a wide selection of Ray-Ban styles ...",
+            "siteLinks": [
+                {
+                    "title": "Women",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Gender/Women?id=78258",
+                    "description": null
+                },
+                {
+                    "title": "Men Ray-Ban Sunglasses",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Gender/Men?id=78258",
+                    "description": null
+                },
+                {
+                    "title": "Clearance/Closeout Ray-Ban ...",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Clearance%2FCloseout?id=78258",
+                    "description": null
+                },
+                {
+                    "title": "Large",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Frame_fit/Large?id=78258",
+                    "description": null
+                }
+            ]
+        },
+        {
+            "title": "Ray-Ban Sunglasses for Men & Women | Sunglass Hut®",
+            "url": "https://www.sunglasshut.com/us/ray-ban",
+            "displayedUrl": "https://www.sunglasshut.com › ray-ban",
+            "description": "Browse the Sunglass Hut Online selection of Ray-Ban sunglasses, including styles like Wayfarer, Aviator and ...",
+            "siteLinks": [
+                {
+                    "title": "Ray-Ban RB3548N ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3548n-8053672611649",
+                    "description": null
+                },
+                {
+                    "title": "Ray-Ban RB3016 ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3016-8053672226966",
+                    "description": null
+                },
+                {
+                    "title": "Ray-Ban Everglasses",
+                    "url": "https://www.sunglasshut.com/us/sunglasses/ray-ban-clear-evolve-lenses",
+                    "description": null
+                },
+                {
+                    "title": "RB3588",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3588-8053672836998",
+                    "description": null
+                }
+            ]
+        },
+        {
+            "title": "Ray-Ban | Nordstrom Rack",
+            "url": "https://www.nordstromrack.com/brands/Ray-Ban",
+            "displayedUrl": "https://www.nordstromrack.com › brands",
+            "description": "Shop a great selection of Ray-Ban at Nordstrom Rack. Find designer Ray-Ban up to 70% off and get free shipping on ...",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses for Men & Women | Best Price Guarantee ...",
+            "url": "https://www.dickssportinggoods.com/f/ray-ban-sunglasses-x-brand-202190",
+            "displayedUrl": "https://www.dickssportinggoods.com › ra...",
+            "description": "Shop Ran-Ban sunglasses deals at DICK'S Sporting Goods. Choose from iconic styles like Aviator and Wayfarer.",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Glasses & Sunglasses with Prescription | LensCrafters",
+            "url": "https://www.lenscrafters.com/lc-us/brands/ray-ban",
+            "displayedUrl": "https://www.lenscrafters.com › Brands",
+            "description": "Head out in style with a pair of Ray-Ban sunglasses or prescription glasses. LensCrafters will help you look & see your ...",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses | Best Price Guarantee ...",
+            "url": "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/",
+            "displayedUrl": "https://www.smartbuyglasses.com › Ray-...",
+            "description": "Enjoy a wide range and free shipping on all orders. Buy Ray-Ban Sunglasses now!",
+            "siteLinks": []
         }
     ],
-    "relatedQueries": [
-        {
-            "title": "small luxury hotels",
-            "url": "https://google.com/search?gbv=1&q=small+luxury+hotels&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAE"
-        },
-        {
-            "title": "luxury hotels of the world",
-            "url": "https://google.com/search?gbv=1&q=luxury+hotels+of+the+world&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAI"
-        },
-        {
-            "title": "luxury hotels guide",
-            "url": "https://google.com/search?gbv=1&q=luxury+hotels+guide&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAM"
-        },
-        {
-            "title": "luxury hotels brazil",
-            "url": "https://google.com/search?gbv=1&q=luxury+hotels+brazil&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAQ"
-        },
-        {
-            "title": "small luxury hotels brazil",
-            "url": "https://google.com/search?gbv=1&q=small+luxury+hotels+brazil&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAU"
-        },
-        {
-            "title": "boutique hotels",
-            "url": "https://google.com/search?gbv=1&q=boutique+hotels&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAY"
-        },
-        {
-            "title": "design hotels",
-            "url": "https://google.com/search?gbv=1&q=design+hotels&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAc"
-        },
-        {
-            "title": "best hotels in the world 2019",
-            "url": "https://google.com/search?gbv=1&q=best+hotels+in+the+world+2019&sa=X&ved=2ahUKEwjM852Iy73nAhXPHLkGHSxZAu4Q1QJ6BAgAEAg"
-        }
-    ]
+    "customData": null,
+    "htmlSnapshotUrl": "file:///Users/AndreyBykov/Documents/_Work/Apify/publicActors/actor-google-search-scraper/apify_storage/key_value_stores/default/uY7Ws2kRukUGfDo.html"
 }

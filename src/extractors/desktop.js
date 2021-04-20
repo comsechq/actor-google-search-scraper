@@ -1,60 +1,151 @@
 const { ensureItsAbsoluteUrl } = require('./ensure_absolute_url');
+const { extractPeopleAlsoAsk } = require('./extractor_tools');
 
 exports.extractOrganicResults = ($) => {
-    const searchResults = [];
-
-    $('.g .rc').each((index, el) => {
+    // Executed on a single organic result (row)
+    const parseResult = (el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
         $(el).find('div.action-menu').remove();
 
         const siteLinks = [];
-        $(el).find('ul li').each((i, siteLinkEl) => {
-            siteLinks.push({
-                status: 200,
-                result: {
-                    title: $(siteLinkEl).find('h3').text(),
-                    url: $(siteLinkEl).find('h3 a').attr('href'),
-                    description: $(siteLinkEl).find('div').text()
-                }
-            });
-        });
 
-        searchResults.push({
-			status: 200,
-			result: {
-            	title: $(el).find('h3').text(),
-            	url: $(el).find('.r a').attr('href'),
-            	displayedUrl: $(el).find('cite').eq(0).text(),
-            	description: $(el).find('.s .st').text(),
-            	siteLinks
-			}
-        });
-    });
+        const siteLinksSelOld = 'ul li';
+        const siteLinksSel2020 = '.St3GK a';
+        const siteLinksSel2021January = 'table';
+
+        if ($(el).find(siteLinksSelOld).length > 0) {
+            $(el).find(siteLinksSelOld).each((i, siteLinkEl) => {
+                siteLinks.push({
+                    status: 200,
+                    result: {
+                        title: $(siteLinkEl).find('h3').text(),
+                        url: $(siteLinkEl).find('h3 a').attr('href'),
+                        description: $(siteLinkEl).find('div').text()
+                    }
+                });
+            });
+        } else if ($(el).find(siteLinksSel2020).length > 0) {
+            $(el).find(siteLinksSel2020).each((i, siteLinkEl) => {
+                siteLinks.push({
+                    status: 200,
+                    result: {
+                        title: $(siteLinkEl).text(),
+                        url: $(siteLinkEl).attr('href'),
+                        // Seems Google removed decription in the new layout, let's keep it for now though
+                        description: $(siteLinkEl).parent('div').parent('h3').parent('div')
+                                                  .find('> div')
+                                                  .toArray()
+                                                  .map(d => $(d).text())
+                                                  .join(' ') || null
+                    }
+                });
+            });
+        } else if ($(el).parent().parent().siblings(siteLinksSel2021January).length > 0) {
+            $(el).parent().parent().siblings(siteLinksSel2021January).find('td .sld').each((i, siteLinkEl) => {
+                siteLinks.push({
+                    status: 200,
+                    result: {
+                        title: $(siteLinkEl).find('a').text(),
+                        url: $(siteLinkEl).find('a').attr('href'),
+                        description: $(siteLinkEl).find('.s').text()
+                    }
+                });
+            });
+        }
+
+        const productInfo = {};
+        const productInfoSelOld = '.dhIWPd';
+        const productInfoSel2021January = '.fG8Fp';
+        const productInfoText = $(el).find(`${productInfoSelOld}, ${productInfoSel2021January}`).text();
+        if (productInfoText) {
+            const ratingMatch = productInfoText.match(/Rating: ([0-9.]+)/);
+            if (ratingMatch) {
+                productInfo.rating = Number(ratingMatch[1]);
+            }
+            const numberOfReviewsMatch = productInfoText.match(/([0-9,]+) reviews/);
+            if (numberOfReviewsMatch) {
+                productInfo.numberOfReviews = Number(numberOfReviewsMatch[1].replace(/,/g, ''));
+            }
+
+            const priceMatch = productInfoText.match(/\$([0-9.,]+)/);
+            if (priceMatch) {
+                productInfo.price = Number(priceMatch[1].replace(/,/g, ''));
+            }
+        }
+
+        const searchResult = {
+            status: 200,
+            result: {
+                title: $(el).find('h3').eq(0).text(),
+                url: $(el).find('a').attr('href'),
+                displayedUrl: $(el).find('cite').eq(0).text(),
+                description: $(el).find('.IsZvec').text(),
+                emphasizedKeywords: $(el).find('.IsZvec em, .IsZvec b').map((i, el) => $(el).text().trim()).toArray(),
+                siteLinks,
+                productInfo
+            }
+        };
+        return searchResult;
+    }
+
+    // TODO: If you figure out how to reasonably generalize this, you get a medal
+    const resultSelectorOld = '.g .rc';
+    // We go one deeper to gain accuracy but then we have to go one up for the parsing
+    const resultSelector2021January = '.g .tF2Cxc>.yuRUbf';
+
+    let searchResults = $(`${resultSelectorOld}`).map((index, el) => parseResult(el)).toArray();
+    if (searchResults.length === 0) {
+        searchResults = $(`${resultSelector2021January}`).map((index, el) => parseResult($(el).parent())).toArray();
+    }
 
     return searchResults;
 };
 
 exports.extractPaidResults = ($) => {
     const ads = [];
+    // Keeping the old selector just in case.
+    const oldAds = $('.ads-fr');
+    const newAds = $('#tads > div');
 
-    $('.ads-ad').each((index, el) => {
+    // Use whatever selector has more results.
+    const $ads = newAds.length >= oldAds.length
+        ? newAds
+        : oldAds;
+
+    $ads.each((index, el) => {
         const siteLinks = [];
-        $(el).find('ul li').each((i, siteLinkEl) => {
-            const $linkEl = $(siteLinkEl).find('a');
-
-            siteLinks.push({
-                title: $linkEl.text(),
-                url: $linkEl.attr('href'),
-                description: $(siteLinkEl).find('div').text() || null,
+        $(el).find('w-ad-seller-rating').remove();
+        $(el).find('a').not('[data-pcu]').not('[ping]')
+            .each((i, siteLinkEl) => {
+                siteLinks.push({
+                    title: $(siteLinkEl).text(),
+                    url: $(siteLinkEl).attr('href'),
+                    // Seems Google removed decription in the new layout, let's keep it for now though
+                    description: $(siteLinkEl).parent('div').parent('h3').parent('div')
+                        .find('> div')
+                        .toArray()
+                        .map(d => $(d).text())
+                        .join(' ') || null,
+                });
             });
-        });
+
+        const $heading = $(el).find('div[role=heading]');
+        const $url = $heading.parent('a');
+
+        // Keeping old description selector for now as it might work on different layouts, remove later
+        const $newDescription = $(el).find('.MUxGbd.yDYNvb.lyLwlc > span');
+        const $oldDescription = $(el).find('> div > div > div > div > div').eq(1);
+
+        const $description = $newDescription.length > 0 ? $newDescription : $oldDescription;
 
         ads.push({
-            title: $(el).find('h3').text(),
-            url: $(el).find('h3 a').attr('href'),
-            displayedUrl: $(el).find('cite').eq(0).text(),
-            description: $(el).find('.ellip,.ads-creative').text(),
+            title: $heading.text(),
+            url: $url.attr('href'),
+            // The .eq(2) fixes getting "Ad." instead of the displayed URL.
+            displayedUrl: $url.find('> div > span').eq(2).text(),
+            description: $description.text(),
+            emphasizedKeywords: $description.find('em, b').map((i, el) => $(el).text().trim()).toArray(),
             siteLinks,
         });
     });
@@ -78,7 +169,7 @@ exports.extractPaidProducts = ($) => {
         products.push({
             title: headingEl.text(),
             url: headingEl.find('a').attr('href'),
-            displayedUrl: displayedUrlEl.find('span:first').text(),
+            displayedUrl: displayedUrlEl.find('span').first().text(),
             prices,
         });
     });
@@ -98,7 +189,8 @@ exports.extractTotalResults = ($) => {
 exports.extractRelatedQueries = ($, hostname) => {
     const related = [];
 
-    $('#brs a').each((index, el) => {
+    // 2021-02-25 - Tiny change #brs -> #bres
+    $('#brs a, #bres a').each((index, el) => {
         related.push({
             title: $(el).text(),
             url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
@@ -106,4 +198,8 @@ exports.extractRelatedQueries = ($, hostname) => {
     });
 
     return related;
+};
+
+exports.extractPeopleAlsoAsk = ($) => {
+    return extractPeopleAlsoAsk($);
 };

@@ -134,35 +134,35 @@
     "relatedQueries": [
         {
             "title": "hotel wikipedie",
-            "url": "https://google.com/search?q=hotel+wikipedie&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAE"
+            "url": "https://www.google.com/search?q=hotel+wikipedie&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAE"
         },
         {
             "title": "hotel praha",
-            "url": "https://google.com/search?q=hotel+praha&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAI"
+            "url": "https://www.google.com/search?q=hotel+praha&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAI"
         },
         {
             "title": "hotel trivago",
-            "url": "https://google.com/search?q=hotel+trivago&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAM"
+            "url": "https://www.google.com/search?q=hotel+trivago&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAM"
         },
         {
             "title": "hotel brno",
-            "url": "https://google.com/search?q=hotel+brno&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAQ"
+            "url": "https://www.google.com/search?q=hotel+brno&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAQ"
         },
         {
             "title": "hotel ostrava",
-            "url": "https://google.com/search?q=hotel+ostrava&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAU"
+            "url": "https://www.google.com/search?q=hotel+ostrava&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAU"
         },
         {
             "title": "hotely praha",
-            "url": "https://google.com/search?q=hotely+praha&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAY"
+            "url": "https://www.google.com/search?q=hotely+praha&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAY"
         },
         {
             "title": "wellness hotel",
-            "url": "https://google.com/search?q=wellness+hotel&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAc"
+            "url": "https://www.google.com/search?q=wellness+hotel&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAc"
         },
         {
             "title": "hotel hra",
-            "url": "https://google.com/search?q=hotel+hra&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAg"
+            "url": "https://www.google.com/search?q=hotel+hra&sa=X&ved=2ahUKEwjs2L2N47rnAhWDVRUIHZubAc8Q1QJ6BAgAEAg"
         }
     ]
 }

@@ -28,6 +28,7 @@ exports.getInitialRequests = ({
     languageCode,
     locationUule,
     resultsPerPage,
+    includeUnfilteredResults,
 }) => {
     return queries
         .split('\n')
@@ -48,6 +49,7 @@ exports.getInitialRequests = ({
             // Only add this param if non-default, the less query params the better!
             if (resultsPerPage && resultsPerPage !== GOOGLE_DEFAULT_RESULTS_PER_PAGE) qs.num = resultsPerPage;
             if (mobileResults) qs.xmobile = 1;
+            if (includeUnfilteredResults) qs.filter = 0;
 
             return exports.createSerpRequest(`http://www.${domain}/search?${queryString.stringify(qs)}`, 0);
         });
@@ -66,19 +68,6 @@ exports.executeCustomDataFunction = async (funcString, params) => {
 
     return func(params);
 };
-
-// exports.getInfoStringFromResults = (results) => {
-//     return _
-//         .chain({
-//             organicResults: results.organicResults.length,
-//             paidResults: results.paidResults.length,
-//             paidProducts: results.paidProducts.length,
-//         })
-//         .mapObject((val, key) => `${key}: ${val}`)
-//         .toArray()
-//         .join(', ')
-//         .value();
-// };
 
 exports.logAsciiArt = () => {
     console.log(`
@@ -117,17 +106,23 @@ exports.createDebugInfo = (request, response) => {
 };
 
 exports.ensureAccessToSerpProxy = async () => {
-    const userInfo = await Apify.client.users.getUser();
+    const userInfo = await Apify.newClient().user().get();
     // Has access to group and nonzero limit.
     const hasGroupAllowed = userInfo.proxy.groups.filter(group => group.name === REQUIRED_PROXY_GROUP).length > 0;
-    const hasNonzeroLimit = userInfo.limits.monthlyGoogleSerpRequests > 0;
+    const maxSerps = userInfo.limits
+        ? userInfo.limits.monthlyGoogleSerpRequests
+        : userInfo.plan.maxMonthlyProxySerps;
+    const hasNonzeroLimit = maxSerps > 0;
     if (!hasGroupAllowed || !hasNonzeroLimit) {
         Apify.utils.log.error(`You need access to ${REQUIRED_PROXY_GROUP}`
             + ' Apify Proxy group in order to use this actor. Please contact support@apify.com to get the access.');
         process.exit(1);
     }
     // Check that SERP limit was not reached.
-    if (userInfo.limits.isGoogleSerpBanned) {
+    const isEnabled = userInfo.limits
+        ? !userInfo.limits.isGoogleSerpBanned
+        : userInfo.plan.enabledPlatformFeatures.includes('PROXY_SERPS');
+    if (!isEnabled) {
         Apify.utils.log.error('You have reached your limit for the number of Google SERP queries on Apify Proxy.'
             + ' Please contact support@apify.com to increase the limit.');
         process.exit(1);

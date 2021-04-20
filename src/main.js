@@ -6,7 +6,7 @@ const {
 const extractorsDesktop = require('./extractors/desktop');
 const extractorsMobile = require('./extractors/mobile');
 const {
-    getInitialRequests, executeCustomDataFunction, createSerpRequest,
+    getInitialRequests, createSerpRequest,
     logAsciiArt, createDebugInfo, ensureAccessToSerpProxy,
 } = require('./tools');
 const rp = require('./rp-wrapper.js');
@@ -16,10 +16,21 @@ const { log } = Apify.utils;
 Apify.main(async () => {
     const input = await Apify.getInput();
 
-    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml, saveHtmlToKeyValueStore } = input;
+    const {
+        maxConcurrency,
+        maxPagesPerQuery,
+        mobileResults,
+        saveHtml,
+        saveHtmlToKeyValueStore,
+    } = input;
 
     // Check that user have access to SERP proxy.
+    await ensureAccessToSerpProxy();
     logAsciiArt();
+
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: [REQUIRED_PROXY_GROUP],
+    });
 
     // Create initial request list and queue.
     const initialRequests = getInitialRequests(input);
@@ -35,18 +46,21 @@ Apify.main(async () => {
     const crawler = new Apify.CheerioCrawler({
         requestList,
         requestQueue,
+        proxyConfiguration,
         maxConcurrency,
         prepareRequestFunction: ({ request }) => {
             const parsedUrl = url.parse(request.url, true);
             request.userData.startedAt = new Date();
-            log.info(`Querying "${parsedUrl.query.q}" page ${request.userData.page} ...`);
+            log.info(`Querying "${parsedUrl.query.q}" page ${request.userData.page + 1} ...`);
             return request;
         },
-        useApifyProxy: true,
-        apifyProxyGroups: [REQUIRED_PROXY_GROUP],
         handlePageTimeoutSecs: 60,
         requestTimeoutSecs: 180,
         handlePageFunction: async ({ request, response, body, $ }) => {
+            if ($('#recaptcha').length) {
+                throw new Error('Captcha found, retrying...');
+            }
+
             request.userData.finishedAt = new Date();
 
             const nonzeroPage = request.userData.page + 1; // Display same page numbers as Google, i.e. 1, 2, 3..
@@ -75,7 +89,7 @@ Apify.main(async () => {
             const nextPageUrl = $(`a[href*="start=${searchOffset}"]`).attr('href');
 
             if (nextPageUrl) {
-                data.hasNextPage = true;
+                hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
                     const nextPageHref = url.format({
                         ...parsedUrl,
@@ -151,6 +165,4 @@ https://api.apify.com/v2/datasets/${datasetId}/items?format=json&fields=searchQu
             }
         };
     }
-
 });
- 
